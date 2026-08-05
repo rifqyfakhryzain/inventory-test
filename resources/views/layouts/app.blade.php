@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('products.index') }}">
+            <a class="navbar-brand" href="{{ route('produk.index') }}">
                 Inventory App
             </a>
         </div>

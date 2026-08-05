@@ -9,11 +9,11 @@
 
         <div class="card-body">
 
-            <form action="{{ route('products.store') }}" method="POST">
+            <form action="{{ route('produk.store') }}" method="POST">
 
                 @csrf
 
-                @include('products.form')
+                @include('produk.form')
 
             </form>
 

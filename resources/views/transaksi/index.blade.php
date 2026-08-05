@@ -13,7 +13,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('transactions.store') }}" method="POST">
+                    <form action="{{ route('transaksi.store') }}" method="POST">
 
                         @csrf
 

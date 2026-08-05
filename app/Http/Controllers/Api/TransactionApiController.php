@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class TransactionController extends Controller
+class TransactionApiController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('nama_produk')->get();
-
         $transactions = Transaction::with('product')
-            ->latest()
-            ->paginate(10);
+            ->orderBy('id', 'asc')
+            ->get();
 
-        return view('transaksi.index', compact(
-            'products',
-            'transactions'
-        ));
+        return response()->json([
+            'success' => true,
+            'message' => 'Daftar transaksi',
+            'data' => $transactions,
+        ]);
     }
 
     public function store(Request $request)
@@ -33,6 +33,7 @@ class TransactionController extends Controller
         ]);
 
         $product = Product::findOrFail($validated['product_id']);
+
         if ($validated['jenis'] == 'masuk') {
 
             $product->stok += $validated['jumlah'];
@@ -41,11 +42,10 @@ class TransactionController extends Controller
 
             if ($validated['jumlah'] > $product->stok) {
 
-                return back()
-                    ->withErrors([
-                        'jumlah' => 'Stok tidak mencukupi.'
-                    ])
-                    ->withInput();
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Stok tidak mencukupi.'
+                ], 422);
 
             }
 
@@ -54,10 +54,12 @@ class TransactionController extends Controller
 
         $product->save();
 
-        Transaction::create($validated);
+        $transaction = Transaction::create($validated);
 
-        return redirect()
-            ->route('transaksi.index')
-            ->with('success', 'Transaksi berhasil disimpan.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Transaksi berhasil disimpan',
+            'data' => $transaction
+        ], 201);
     }
 }

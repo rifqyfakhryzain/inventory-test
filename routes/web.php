@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('products.index');
+    return view('dashboard');
 });
 
-Route::resource('products', ProductController::class);
+Route::resource('produk', ProductController::class);
 
-Route::resource('transactions', TransactionController::class)
+Route::resource('transaksi', TransactionController::class)
     ->only(['index', 'store']);

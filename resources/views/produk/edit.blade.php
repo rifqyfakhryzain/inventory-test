@@ -13,12 +13,12 @@
 
         <h3>Edit Produk</h3>
 
-        <form action="{{ route('products.update', $product) }}" method="POST">
+        <form action="{{ route('produk.update', $produk) }}" method="POST">
 
             @csrf
             @method('PUT')
 
-            @include('products.form')
+            @include('produk.form')
 
         </form>
 

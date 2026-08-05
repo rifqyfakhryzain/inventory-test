@@ -5,7 +5,7 @@
 
         <h3>Daftar Produk</h3>
 
-        <a href="{{ route('products.create') }}" class="btn btn-primary">
+        <a href="{{ route('produk.create') }}" class="btn btn-primary">
             Tambah Produk
         </a>
 
@@ -15,7 +15,7 @@
 
         <div class="col-md-4">
 
-            <form action="{{ route('products.index') }}" method="GET">
+            <form action="{{ route('produk.index') }}" method="GET">
 
                 <div class="input-group">
 
@@ -68,13 +68,13 @@
 
                     <td>
 
-                        <a href="{{ route('products.edit', $product) }}" class="btn btn-warning btn-sm">
+                        <a href="{{ route('produk.edit', $product) }}" class="btn btn-warning btn-sm">
 
                             Edit
 
                         </a>
 
-                        <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline">
+                        <form action="{{ route('produk.destroy', $product) }}" method="POST" class="d-inline">
 
                             @csrf
                             @method('DELETE')
