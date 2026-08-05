@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::resource('produk', ProductController::class);
 

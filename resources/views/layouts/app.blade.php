@@ -13,9 +13,21 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('produk.index') }}">
+
+            <a class="navbar-brand" href="{{ route('dashboard') }}">
                 Inventory App
             </a>
+
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ route('produk.index') }}">
+                    Produk
+                </a>
+
+                <a class="nav-link" href="{{ route('transaksi.index') }}">
+                    Transaksi
+                </a>
+            </div>
+
         </div>
     </nav>
 
