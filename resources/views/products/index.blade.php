@@ -51,7 +51,66 @@
 
         <tbody>
 
+            @forelse ($products as $product)
+                <tr>
+
+                    <td>{{ $loop->iteration }}</td>
+
+                    <td>{{ $product->kode_produk }}</td>
+
+                    <td>{{ $product->nama_produk }}</td>
+
+                    <td>{{ $product->satuan }}</td>
+
+                    <td>{{ $product->stok }}</td>
+
+                    <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
+
+                    <td>
+
+                        <a href="{{ route('products.edit', $product) }}" class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                        <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline">
+
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus produk?')">
+
+                                Hapus
+
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+            @empty
+
+                <tr>
+
+                    <td colspan="7" class="text-center">
+
+                        Data produk belum tersedia.
+
+                    </td>
+
+                </tr>
+            @endforelse
+
         </tbody>
+
+        <div class="d-flex justify-content-end">
+
+            {{ $products->links() }}
+
+        </div>
 
     </table>
 @endsection
