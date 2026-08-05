@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Edit Produk</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+
+        <h3>Edit Produk</h3>
+
+        <form action="{{ route('products.update', $product) }}" method="POST">
+
+            @csrf
+            @method('PUT')
+
+            @include('products.form')
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
