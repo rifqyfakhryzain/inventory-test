@@ -174,6 +174,14 @@ Seluruh endpoint REST API telah diuji menggunakan **Postman**.
 
 ---
 
+## 📌 REST API Testing
+
+| Dokumentasi              | Link                                                                                            |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| 📖 Postman Documentation | https://documenter.getpostman.com/view/50481330/2sBY4VHwWo#ce99bcac-aa55-48fe-8a6c-c5d4e456611d |
+
+---
+
 ## 👨‍💻 Author
 
 **Rifqy Fakhry Zain**
